@@ -408,13 +408,13 @@ class ACDHTranskribusUtils:
                         self.goobi_base_url.format(f), col_id=col_id
                     )
 
-    def upload_iiif_from_url(self, iiif_url, col_id):
+    def upload_iiif_from_url(self, iiif_url, col_id, doc_title):
         """Takes an URL to a IIIF Manifest and posts that URL to Transkribus
         :param iiif_url: URL of the IIIF Manifest
         :param col_id: Transkribus CollectionID
         """
         # ToDo: check if document with same title already exists
-        doc_title = get_title_from_iiif(iiif_url)
+        #doc_title = get_title_from_iiif(iiif_url)
         doc_exists = self.search_for_document(title=doc_title, col_id=col_id)
         if len(doc_exists) == 0:
             res = requests.post(
